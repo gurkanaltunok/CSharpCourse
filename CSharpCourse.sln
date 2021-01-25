@@ -27,13 +27,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inheritance", "Inheritance\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualMethods", "VirtualMethods\VirtualMethods.csproj", "{EE9C1479-3C2A-420A-8A9C-0801BD8513C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractClasses", "AbstractClasses\AbstractClasses.csproj", "{E0866E4D-D3FA-43C3-B5EF-C554BC3AB196}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractClasses", "AbstractClasses\AbstractClasses.csproj", "{E0866E4D-D3FA-43C3-B5EF-C554BC3AB196}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecapDemo2", "RecapDemo2\RecapDemo2.csproj", "{946B2085-AC21-44E1-96F1-96981A53B977}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecapDemo2", "RecapDemo2\RecapDemo2.csproj", "{946B2085-AC21-44E1-96F1-96981A53B977}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessModifiers", "AccessModifiers\AccessModifiers.csproj", "{E8737486-2332-47D9-B941-DFB3CF3EA2F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccessModifiers", "AccessModifiers\AccessModifiers.csproj", "{E8737486-2332-47D9-B941-DFB3CF3EA2F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessModifiersDemo", "AccessModifiersDemo\AccessModifiersDemo.csproj", "{C711C4A3-75FE-49B9-9C9C-C9D5790C996D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccessModifiersDemo", "AccessModifiersDemo\AccessModifiersDemo.csproj", "{C711C4A3-75FE-49B9-9C9C-C9D5790C996D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Constructors", "Constructors\Constructors.csproj", "{E22988A3-5C70-4BB3-84CD-9595E531CFEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceAndValueType", "ReferenceAndValueType\ReferenceAndValueType.csproj", "{92A0DDA3-1D48-4265-94DE-C32F9282550A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "Collections\Collections.csproj", "{6DFB43EC-73D3-4434-A336-06E6ADF811D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +111,18 @@ Global
 		{C711C4A3-75FE-49B9-9C9C-C9D5790C996D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C711C4A3-75FE-49B9-9C9C-C9D5790C996D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C711C4A3-75FE-49B9-9C9C-C9D5790C996D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E22988A3-5C70-4BB3-84CD-9595E531CFEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E22988A3-5C70-4BB3-84CD-9595E531CFEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E22988A3-5C70-4BB3-84CD-9595E531CFEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E22988A3-5C70-4BB3-84CD-9595E531CFEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92A0DDA3-1D48-4265-94DE-C32F9282550A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92A0DDA3-1D48-4265-94DE-C32F9282550A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92A0DDA3-1D48-4265-94DE-C32F9282550A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92A0DDA3-1D48-4265-94DE-C32F9282550A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DFB43EC-73D3-4434-A336-06E6ADF811D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DFB43EC-73D3-4434-A336-06E6ADF811D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DFB43EC-73D3-4434-A336-06E6ADF811D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DFB43EC-73D3-4434-A336-06E6ADF811D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
