@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AdoNetDemo
+namespace EntityFrameworkDemo
 {
     public partial class Form1 : Form
     {
@@ -27,16 +27,36 @@ namespace AdoNetDemo
             dgwProducts.DataSource = _productDal.GetAll();
         }
 
+        private void SearchProducts(string key)
+        {
+            //dgwProducts.DataSource = _productDal.GetAll().Where(p => p.Name.ToLower().Contains(key.ToLower())).ToList();
+            var result = _productDal.GetByName(key);
+            dgwProducts.DataSource = result;
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            _productDal.Add(new Product
+            _productDal.Add(new Product 
             {
-                Name = tbxName.Text,
+                Name= tbxName.Text,
                 UnitPrice = Convert.ToDecimal(tbxUnitPrice.Text),
                 StockAmount = Convert.ToInt32(tbxStockAmount.Text)
             });
             LoadProducts();
-            MessageBox.Show("Product added!");
+            MessageBox.Show("Added!");
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            _productDal.Update(new Product
+            {
+                Id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value),
+                Name = tbxNameUpdate.Text,
+                UnitPrice = Convert.ToDecimal(tbxUnitPriceUpdate.Text),
+                StockAmount = Convert.ToInt32(tbxStockAmountUpdate.Text)
+            });
+            LoadProducts();
+            MessageBox.Show("Updated");
         }
 
         private void dgwProducts_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -46,32 +66,24 @@ namespace AdoNetDemo
             tbxStockAmountUpdate.Text = dgwProducts.CurrentRow.Cells[3].Value.ToString();
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            Product product = new Product
-            {
-                Id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value),
-                Name = tbxNameUpdate.Text,
-                UnitPrice = Convert.ToDecimal(tbxUnitPriceUpdate.Text),
-                StockAmount = Convert.ToInt32(tbxStockAmountUpdate.Text)
-            };
-            _productDal.Update(product);
-            LoadProducts();
-            MessageBox.Show("Updated!");
-
-        }
-
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value);
-            _productDal.Delete(id);
+            _productDal.Delete(new Product
+            {
+                Id = Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value)
+            });
             LoadProducts();
-            MessageBox.Show("Deleted!");
+            MessageBox.Show("Deleted");
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void tbxSearch_TextChanged(object sender, EventArgs e)
         {
+            SearchProducts(tbxSearch.Text);
+        }
 
+        private void tbxGetById_Click(object sender, EventArgs e)
+        {
+            _productDal.GetById(6425);
         }
     }
 }

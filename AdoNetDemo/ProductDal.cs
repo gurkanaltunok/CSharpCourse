@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 
 namespace AdoNetDemo
 {
-    class ProductDal
+
+    public class ProductDal
     {
-        SqlConnection _connection = new SqlConnection(@"server=(localdb)\mssqllocaldb; initial catalog=ETrade;integrated security=true");
+        SqlConnection _connection = new SqlConnection(@"server=(localdb)\mssqllocaldb;initial catalog=ETrade;integrated security=true");
         public List<Product> GetAll()
         {
+            _connection.Close();
             ConnectionControl();
             SqlCommand command = new SqlCommand("Select * from Products", _connection);
 
@@ -30,7 +32,8 @@ namespace AdoNetDemo
                     UnitPrice = Convert.ToDecimal(reader["UnitPrice"])
                 };
                 products.Add(product);
-            };
+            }
+
             reader.Close();
             _connection.Close();
             return products;
@@ -71,12 +74,13 @@ namespace AdoNetDemo
             command.ExecuteNonQuery();
 
             _connection.Close();
+
         }
 
         public void Update(Product product)
         {
             ConnectionControl();
-            SqlCommand command = new SqlCommand("Update Products set Name=@name, UnitPerice=@unitPrice, StockAmount=@stockAmount where Id=@id", _connection);
+            SqlCommand command = new SqlCommand("Update Products set Name=@name, UnitPrice=@unitPrice, StockAmount=@stockAmount where Id=@id", _connection);
             command.Parameters.AddWithValue("@name", product.Name);
             command.Parameters.AddWithValue("@unitPrice", product.UnitPrice);
             command.Parameters.AddWithValue("@stockAmount", product.StockAmount);
@@ -84,6 +88,17 @@ namespace AdoNetDemo
             command.ExecuteNonQuery();
 
             _connection.Close();
+        }
+
+        public void Delete(int id)
+        {
+            ConnectionControl();
+            SqlCommand command = new SqlCommand("Delete from Products where Id=@id", _connection);
+            command.Parameters.AddWithValue("@id", id);
+            command.ExecuteNonQuery();
+
+            _connection.Close();
+
         }
     }
 }
