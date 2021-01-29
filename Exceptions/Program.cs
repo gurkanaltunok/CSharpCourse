@@ -9,19 +9,52 @@ namespace Exceptions
         {
             //ExceptionIntro();
 
+            //TryCatch();
+
+            //ActionDemo();
+
+            Func<int, int, int> add = Topla;
+
+            Console.WriteLine(add(3,5));
+
+            Func<int> getRandomNumber = delegate ()
+            {
+                Random random = new Random();
+                return random.Next(1, 100);
+            };
+
+            Func<int> getRandomNumber2 = () => new Random().Next(1, 100);
+
+            Console.WriteLine(getRandomNumber());
+            Console.WriteLine(getRandomNumber2());
+
+
+            //Console.WriteLine(Topla(2,3));
+        }
+
+        static int Topla(int x,int y)
+        {
+            return x + y;
+        }
+
+        private static void ActionDemo()
+        {
+            HandleException(() =>
+            {
+                Find();
+            });
+        }
+
+        private static void TryCatch()
+        {
             try
             {
                 Find();
             }
-            catch (RecordNotFoundException exception )
+            catch (RecordNotFoundException exception)
             {
                 Console.WriteLine(exception.Message);
             }
-
-            HandleException(() => 
-            {
-                Find();
-            });
         }
 
         private static void HandleException(Action action)
